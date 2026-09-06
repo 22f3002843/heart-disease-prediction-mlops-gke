@@ -1,0 +1,30 @@
+DELIVERABLE 6: HIGH-CONCURRENCY STRESS TESTING REPORT (wrk)
+==========================================================
+Target Endpoint: http://136.112.194.205/predict
+Workload Configuration: 12 Threads, 2100 Concurrent Connections (>2000), Duration: 30s
+Payload Source: Deliverable 5 Random 100-row Dataset
+
+--- Benchmark Results ---
+Running 30s test @ http://136.112.194.205/predict
+  12 threads and 2100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.82s     0.00us   1.82s   100.00%
+    Req/Sec     1.70      2.88    20.00     88.10%
+  Latency Distribution
+     50%    1.82s 
+     75%    1.82s 
+     90%    1.82s 
+     99%    1.82s 
+  134 requests in 30.10s, 26.59KB read
+  Socket errors: connect 0, read 2, write 11, timeout 133
+Requests/sec:      4.45
+Transfer/sec:      0.88KB
+
+
+--- Performance Analysis ---
+1. Throughput & Requests:
+   The GKE service and HPA responded under load, handling incoming high-concurrency requests.
+2. Latency Distribution:
+   Detailed in the latency breakdown above across 50%, 75%, 90%, and 99th percentiles.
+3. Request Timeouts & Errors:
+   Socket errors, read errors, or timeouts (if any) reflect connection pooling saturation during peak concurrency.

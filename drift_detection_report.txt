@@ -1,0 +1,27 @@
+DELIVERABLE 7: INPUT DATA DRIFT DETECTION REPORT
+================================================
+Reference Baseline Dataset: data.csv (Training Features)
+Target Prediction Dataset: random_100_samples.csv (100 Generated Inference Samples)
+Significance Threshold: p-value < 0.05 indicates statistical drift
+
+--- Feature-by-Feature Drift Analysis ---
+ Feature          Test_Type  Statistic  P_Value    PSI  Drift_Detected
+     age Kolmogorov-Smirnov     0.1773  0.01508 0.3936            True
+  gender         Chi-Square    17.9044  0.00002 0.0000            True
+      cp         Chi-Square    31.9766  0.00000 0.1785            True
+trestbps Kolmogorov-Smirnov     0.3961  0.00000 0.7290            True
+    chol Kolmogorov-Smirnov     0.4573  0.00000 0.8995            True
+     fbs         Chi-Square    35.4499  0.00000 0.0000            True
+ restecg         Chi-Square    84.5048  0.00000 0.0369            True
+ thalach Kolmogorov-Smirnov     0.2757  0.00002 0.4254            True
+   exang         Chi-Square     6.0740  0.01372 0.0000            True
+ oldpeak Kolmogorov-Smirnov     0.5650  0.00000 1.3440            True
+   slope         Chi-Square    41.4933  0.00000 0.4622            True
+      ca         Chi-Square    55.2808  0.00000 0.5198            True
+    thal         Chi-Square   102.1148  0.00000 1.0638            True
+
+--- Summary & Conclusion ---
+Total Features Analyzed: 13
+Features Exhibiting Drift: 13 (age, gender, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal)
+Plain English Findings:
+Because the 100-sample test set was randomly and uniformly synthesized across feature ranges rather than drawn from the real patient population, features with non-uniform real-world distributions show significant statistical drift (p-value < 0.05 and elevated PSI scores). This triggers a data drift alert, signaling the need for model retraining or data validation.
