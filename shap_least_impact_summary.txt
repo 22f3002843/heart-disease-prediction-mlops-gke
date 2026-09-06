@@ -1,0 +1,24 @@
+DELIVERABLE 2: MODEL EXPLAINABILITY REPORT (SHAP)
+================================================
+
+Model Test Accuracy: 0.8361
+
+Features Ranked by Impact (Lowest to Highest):
+ Feature  Mean_Absolute_SHAP
+     fbs            0.003742
+trestbps            0.012020
+ restecg            0.015956
+     age            0.024554
+  gender            0.030901
+    chol            0.031238
+   exang            0.045872
+   slope            0.046272
+ thalach            0.055798
+ oldpeak            0.063793
+      ca            0.074615
+    thal            0.085058
+      cp            0.112635
+
+Plain English Explanation:
+The features that have the least impact on predicting heart disease are: fbs, trestbps, restecg.
+Their average SHAP contribution scores are 0.0037, 0.0120, and 0.0160 respectively. Because their SHAP values are closest to zero across test samples, fluctuations in these attributes produce the smallest change in the model's likelihood estimate for heart disease.

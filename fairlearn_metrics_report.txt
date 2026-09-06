@@ -1,0 +1,27 @@
+DELIVERABLE 3: FAIRNESS TESTING REPORT (FAIRLEARN)
+=================================================
+Sensitive Attribute: Age (Binarized: Senior >= 60 vs Younger < 60)
+
+--- Overall Performance ---
+accuracy               0.836066
+selection_rate         0.672131
+true_positive_rate     0.969697
+false_positive_rate    0.321429
+
+--- Group-Level Metrics ---
+               accuracy  selection_rate  true_positive_rate  false_positive_rate
+age                                                                             
+Senior (>=60)  0.833333        0.555556            1.000000             0.272727
+Younger (<60)  0.837209        0.720930            0.961538             0.352941
+
+--- Disparity Differences (Group Max - Group Min) ---
+accuracy               0.003876
+selection_rate         0.165375
+true_positive_rate     0.038462
+false_positive_rate    0.080214
+
+--- Disparity Ratios (Group Min / Group Max) ---
+accuracy               0.995370
+selection_rate         0.770609
+true_positive_rate     0.961538
+false_positive_rate    0.772727
