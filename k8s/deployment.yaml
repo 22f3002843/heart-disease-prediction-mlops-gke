@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heart-disease-api
+  labels:
+    app: heart-disease-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: heart-disease-api
+  template:
+    metadata:
+      labels:
+        app: heart-disease-api
+    spec:
+      containers:
+      - name: api
+        image: IMAGE_PLACEHOLDER
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: heart-disease-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: heart-disease-api
+  ports:
+  - port: 80
+    targetPort: 8080

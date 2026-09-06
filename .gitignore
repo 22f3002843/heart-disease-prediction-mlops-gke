@@ -1,0 +1,19 @@
+# Exclude model artifacts and binary files
+*.joblib
+*.pkl
+*.pickle
+*.h5
+*.pt
+*.onnx
+
+# Exclude any dataset splits
+train.csv
+test.csv
+train_*.csv
+test_*.csv
+X_*.csv
+y_*.csv
+
+# Python cache
+__pycache__/
+*.py[cod]

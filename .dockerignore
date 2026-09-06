@@ -1,0 +1,9 @@
+__pycache__
+*.pyc
+*.pyo
+.git
+.gitignore
+temp_repo
+*.png
+shap_least_impact_summary.txt
+fairlearn_metrics_report.txt
